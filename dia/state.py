@@ -99,7 +99,9 @@ class KVCache(torch.nn.Module):
             v=v,
         )
 
-    def update(self, k: torch.Tensor, v: torch.Tensor, current_idx: torch.Tensor) -> tuple[torch.Tensor, torch.Tensor]:
+     def update(
+        self, k: torch.Tensor, v: torch.Tensor, current_idx: int | torch.Tensor
+    ) -> tuple[torch.Tensor, torch.Tensor]:
         k_out, v_out = self.k, self.v
         k_out[:, :, current_idx, :] = k
         v_out[:, :, current_idx, :] = v
