@@ -252,7 +252,7 @@ class Attention(nn.Module):
         cache: KVCache | None = None,  # None in Encoder, KVCache in Decoder
         prefill: bool = False,
         is_causal: bool = False,
-        current_idx: torch.Tensor | None = None,
+        current_idx: int | torch.Tensor | None = None,
     ) -> tuple[torch.Tensor, tuple[torch.Tensor, torch.Tensor] | None]:
         """
         Performs attention calculation with optional KV caching.
