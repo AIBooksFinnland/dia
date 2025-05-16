@@ -105,7 +105,7 @@ def build_revert_indices(B: int, T: int, C: int, delay_pattern: tp.List[int]) ->
 
     t_idx_BxTxC = torch.minimum(
         t_idx_BT1 + delay_arr.view(1, 1, C),
-        torch.tensor(T - 1, device=device),
+        torch.tensor(T - 1, device=device, dtype=t_idx_BT1.dtype),
     )
     b_idx_BxTxC = torch.broadcast_to(torch.arange(B, device=device).view(B, 1, 1), [B, T, C])
     c_idx_BxTxC = torch.broadcast_to(torch.arange(C, device=device).view(1, 1, C), [B, T, C])
