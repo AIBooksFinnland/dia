@@ -125,7 +125,7 @@ class DecoderInferenceState:
     dec_positions: torch.Tensor
     self_attn_cache: list[KVCache]
     cross_attn_cache: list[KVCache]
-    casual_attn_mask: torch.Tensor
+    causal_attn_mask: torch.Tensor
 
     @classmethod
     def new(
