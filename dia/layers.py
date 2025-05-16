@@ -498,7 +498,7 @@ class DecoderLayer(nn.Module):
         residual = x
         x_norm = self.pre_sa_norm(x).to(self.compute_dtype)
 
-        self_attn_mask = state.casual_attn_mask[None, None, current_idx]
+        self_attn_mask = state.causal_attn_mask[None, None, current_idx]
 
         sa_out = self.self_attention(
             Xq=x_norm,  # (2, 1, D)
