@@ -164,7 +164,7 @@ class DecoderInferenceState:
             dec_positions=dec_positions,
             self_attn_cache=self_attn_cache,
             cross_attn_cache=dec_cross_attn_cache,
-            casual_attn_mask=causal_mask,
+            causal_attn_mask=causal_mask,
         )
 
     def prepare_step(self, step_from: int, step_to: int | None = None) -> None:
