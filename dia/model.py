@@ -665,7 +665,7 @@ class Dia:
 
         dec_state, dec_output = self._prepare_generation(text, audio_prompt)
         dec_step = min(dec_output.prefill_steps) - 1
-        current_idx = torch.tensor([dec_step], device=self.device)
+        current_idx = dec_step
 
         eos_detected_Bx = torch.zeros((batch_size,), dtype=torch.bool, device=self.device)
         eos_countdown_Bx = torch.full((batch_size,), -1, dtype=torch.long, device=self.device)
