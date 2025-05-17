@@ -4,22 +4,30 @@ version = "0.1.0"
 description = "Dia - A text-to-speech model for dialogue generation"
 readme = "README.md"
 requires-python = ">=3.10"
-license = {file = "LICENSE"}
+license = { file = "LICENSE" }
 authors = [
-    {name = "Nari Labs", email = "contact@narilabs.ai"}
+    { name = "Nari Labs", email = "contact@narilabs.ai" }
 ]
+───────────────────────────────────────────────
 dependencies = [
+    "ctc-forced-aligner==1.0.2",
     "descript-audio-codec>=1.0.0",
+    "ffcv==1.0.2",
+    "flash-attn==2.7.4.post1",
     "gradio>=5.25.2",
     "huggingface-hub>=0.30.2",
     "numpy>=2.2.4",
+    "peft==0.8.0",
+    "polars==1.29.0",
     "pydantic>=2.11.3",
     "safetensors>=0.5.3",
     "soundfile>=0.13.1",
     "torch==2.6.0",
     "torchaudio==2.6.0",
+    "transformers==4.35.0",
     "triton==3.2.0 ; sys_platform == 'linux'",
     "triton-windows==3.2.0.post18 ; sys_platform == 'win32'",
+    "wandb==0.16.6",
 ]
 
 [build-system]
@@ -34,12 +42,10 @@ build-backend = "hatchling.build"
 packages = ["dia"]
 
 [tool.ruff]
-# Never enforce `E501` (line length violations).
 lint.ignore = ["C901", "E501", "E741", "W605"]
 lint.select = ["C", "E", "F", "I", "W"]
 line-length = 119
 
-# Ignore import violations in all `__init__.py` files.
 [tool.ruff.lint.per-file-ignores]
 "__init__.py" = ["E402", "F401", "F403", "F811"]
 
@@ -59,6 +65,9 @@ name = "pytorch-cu126"
 url = "https://download.pytorch.org/whl/cu126"
 explicit = true
 
+# ─────────────────────────────────────────────────────────────
+#   Optional development-only extras
+# ─────────────────────────────────────────────────────────────
 [dependency-groups]
 dev = [
     "ninja>=1.11.1.4",
