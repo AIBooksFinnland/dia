@@ -8,7 +8,7 @@ license = { file = "LICENSE" }
 authors = [
     { name = "Nari Labs", email = "contact@narilabs.ai" }
 ]
-───────────────────────────────────────────────
+
 dependencies = [
     "ctc-forced-aligner==1.0.2",
     "descript-audio-codec>=1.0.0",
@@ -65,9 +65,7 @@ name = "pytorch-cu126"
 url = "https://download.pytorch.org/whl/cu126"
 explicit = true
 
-# ─────────────────────────────────────────────────────────────
-#   Optional development-only extras
-# ─────────────────────────────────────────────────────────────
+
 [dependency-groups]
 dev = [
     "ninja>=1.11.1.4",
